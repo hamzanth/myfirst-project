@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="static/css/all.css">
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="static/css/bootstrap.css">
+  <!-- Custom -->
+  <link rel="stylesheet" href="static/css/style.css">
+  <link rel="stylesheet" href="static/css/lightbox.min.css">
+
+  <title>Pages</title>
+</head>
+<body>
+
+    <nav class="navbar navbar-dark navbar-expand-sm bg-darks py-0 bg-danger">
+        <div class="container">
+            <div class="navbar-header">
+                <a href="#" class="navbar-brand">Admin Strap</a>
+                <button class="navbar-toggler" data-toggle="collapse" data-target="#navBarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse" id="navBarCollapse">
+                <ul class="nav navbar-nav">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link active">Pages</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Posts</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Users</a>
+                    </li>
+                </ul>
+                <ul class="navs navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Welcome</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header id="header" class="bg-dark">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10">
+                    <h1 class="text-white"><i class="fas fa-cog"></i> Pages <span class="text-muted small" style="font-size: 20px;">Manage Site Pages </span></h1>
+                </div>
+                <div class="col-md-2">
+                    <div class="dropdown">
+                        <button class="btn btn-sm btn-light dropdown-toggle my-3" data-toggle="dropdown">Create Content</button>
+                        <ul class="dropdown-menu">
+                            <li><a type="button" data-toggle="modal" data-target="#addPage" class="dropdown-item">Add Page</a></li>
+                            <li><a href="#" class="dropdown-item">Add Post</a></li>
+                            <li><a href="#" class="dropdown-item">Add User</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="breadcrumb"l class="mt-3">
+        <div class="container">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="index.html">Dashboard</a>
+                </li>
+                <li class="breadcrumb-item active">
+                    <a href="index.html">Pages</a>
+                </li>
+            </ol>
+        </div>
+    </section>
+
+    <section id="main">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="listgroup">
+                        <li class="list-group-item list-group-item-action bg-danger"><i class="fas fa-cog text-white"></i>
+                            <a href="#" class="list-group-link active text-white">Dashboard</a>
+                        </li>
+                        <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                            <a href="#" class="list-group-link"><i class="fas fa-list-alt"></i> Pages</a>
+                            <span class="badge badge-pill badge-dark">45</span>
+                        </li>
+                        <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                            <a href="#" class="list-group-link"><i class="fas fa-pen"></i> Posts</a>
+                            <span class="badge badge-pill badge-dark">33</span>
+                        </li>
+                        <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                            <a href="#" class="list-group-link"><i class="fas fa-user"></i> Users</a>
+                            <span class="badge badge-pill badge-dark">86</span>
+                        </li>
+                    </div>
+                    <div class="jumbotron py-3 pl-1">
+                        <div class="container-fluid">
+                            <h4>Disk Space Used</h4>
+                            <div class="progress my-2">
+                                <div class="progress-bar" style="width:60%;">60%</div>
+                            </div>
+                        <h4>Bandwidth Used</h4>
+                        <div class="progress my-2">
+                            <div class="progress-bar" style="width:40%;">40%</div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <div class="card">
+                        <div class="card-header bg-danger text-white">
+                            <h5 class="card-title my-0">
+                                Pages
+                            </h5>
+                        </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <input type="text" placeholder="Filter Pages..." class="form-control">
+                                    </div>
+                                </div>
+                                <br>
+                                <table class="table table-striped table-hover">
+                                    <tr>
+                                        <th>Title</th>
+                                        <th>Published</th>
+                                        <th>Created</th>
+                                        <th></th>
+                                    </tr>
+                                    <tr>
+                                        <td>Home</td>
+                                        <td><i class="fas fa-check"></i></td>
+                                        <td>Dec 12, 2019</td>
+                                        <td><a href="edit.html" class="btn btn-default btn-outline-dark">Edit</a> <a href="" class="btn btn-danger">delete</a> </td>
+                                    </tr>
+                                    <tr>
+                                        <td>About</td>
+                                        <td><i class="fas fa-check"></i></td>
+                                        <td>Dec 12, 2019</td>
+                                        <td><a href="edit.html" class="btn btn-default btn-outline-dark">Edit</a> <a href="" class="btn btn-danger">delete</a> </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Services</td>
+                                        <td><i class="fas fa-times"></i></td>
+                                        <td>Dec 12, 2019</td>
+                                        <td><a href="edit.html" class="btn btn-default btn-outline-dark">Edit</a> <a href="" class="btn btn-danger">delete</a> </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Contacts</td>
+                                        <td><i class="fas fa-check"></i></td>
+                                        <td>Dec 12, 2019</td>
+                                        <td><a href="edit.html" class="btn btn-default btn-outline-dark">Edit</a> <a href="" class="btn btn-danger">delete</a> </td>
+                                    </tr>
+                                </table>
+                            </div>
+                    </div>
+
+                </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="text-center bg-dark mt-2 text-white py-4" id="footer">
+        <p class="mb-0">copyright Adminstrap, &copy; 2021</p>
+    </footer>
+
+    <!-- Modals  -->
+    <!-- Add page Modal -->
+    <div class="modal fade" id="addPage">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form>
+                <div class="modal-header">
+                    <h2 class="modal-title">Add Page</h2>
+                    <button class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="">Page Title</label>
+                        <input type="text" placeholder="Page Title" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Page Body</label>
+                        <textarea name="editor" id="" cols="30" rows="10" class="form-control" placeholder="Page Body"></textarea>
+                    </div>
+                    <div class="form-group form-check">
+                        <label for="" class="form-check-label">
+                            <input type="checkbox" class="form-input-check-input"> Published
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Meta Tags</label>
+                        <input type="text" placeholder="Add some tags...." class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Meta description</label>
+                        <input type="text" placeholder="Add some description" class="form-control">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-default" data-dismiss="modal">close</button>
+                    <button class="btn btn-primary">Save Changes</button>
+                </div>
+            </div>
+            </form>
+        </div>
+    </div>
+
+<script src="static/js/jquery-3.3.1.min.js "></script>
+    <script src="static/js/bootstrap.bundle.min.js "></script>
+    <script src="static/js/main.js "></script>
+</body>
