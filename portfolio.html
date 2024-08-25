@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>PORTFOLIO</title>
+	<style type="text/css">
+		*{
+			box-sizing: border-box;
+		}
+		html, body{
+			font-size: 10px;
+			margin: 0;
+			padding: 0;
+			height: 100%;
+		}
+		a{
+			text-decoration: none;
+			color: black;
+		}
+		ul{
+			padding: 0;
+			margin: 0;
+			list-style-type: none;
+		}
+		section.hero-nav{
+			height: 65vh;
+			position: relative;
+			background-image: url("images/kids.jpg");
+			background-position: center;
+		}
+		nav{
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			/*position: sticky;*/
+			/*background-color: white;*/
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index: 33;
+			width: 100%;
+		}
+		nav ul.navlist{
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+		nav ul.navlist li{
+			padding: 1rem;
+		} 
+		nav ul.navlist li:hover{
+			background-color: lightgrey;
+		}
+		ul.navlist li a{
+			font-size: 1.8rem;
+			text-transform: uppercase;
+			color: white;
+		}
+		ul.navlist li div.icont{
+			display: inline-block;
+			margin-bottom: 2px;
+		}
+		ul.navlist div.icont div.ic{
+			width: 1.2rem;
+			height: 0.1rem;
+			margin: 0.1rem;
+			background-color: white;
+		}
+		nav div.toggler{
+			cursor: pointer;
+			padding: 10px;
+			margin-top: -5px;
+			display: inline-block;
+		}
+		nav div.toggler:hover{
+			background-color: red;
+		}
+		nav div.tog{
+			width: 1.8rem;
+			height: 0.2rem;
+			margin: 0.2rem;
+			background-color: white;
+		}
+		nav div.toggler:hover nav div.toggler div.tog{
+			background-color: black;
+			/*width: 4rem;*/
+		}
+		section.hero-nav p{
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			background-color: black;
+			color: white;
+			font-size: 2.5rem;
+			padding: 12px 20px;
+			letter-spacing: 8px;
+		}
+		section.about{
+			width: 70%;
+			margin: 100px auto;
+		}
+		section.about>h1{
+			text-align: center;
+			font-size: 2.5rem;
+			font-weight: normal;
+			color: grey;
+		}
+		div.fant h2, div.fant p{
+			text-align: center;
+			font-size: 1.6rem;
+			color: grey;
+		}
+		div.fant p{
+			text-align: justify;
+		}
+		section.about div.col-cont{
+			display: flex;
+			padding: 0 12px;
+			/*align-items: center;*/
+			justify-content: space-between;
+			flex-wrap: wrap;
+		}
+		div.col-cont div.col{
+			width: 47%;
+		}
+		div.col img{
+			width: 100%;
+			height: 40vh;
+			opacity: 0.8;
+		}
+		div.col img:hover{
+			opacity: 1;
+		}
+		div.col h3{
+			text-align: center;
+			margin-bottom: 50px;
+			font-size: 1.8rem;
+			color: grey;
+		}
+		div.col p{
+			font-size: 1.7rem;
+			color: grey;
+			line-height: 24px;
+		}
+		section.about div.skills{
+			margin: 50px 0;
+		}
+		div.skills h2{
+			font-weight: normal;
+			font-size: 2rem;
+			text-align: center;
+			color: grey;
+			margin: 40px 0;
+		}
+		ul.skill-bars li h1{
+			color: grey;
+			letter-spacing: 10px;
+			font-size: 1.7rem;
+			font-weight: normal;
+			/*margin: 40px 0;*/
+		}
+		ul.skill-bars li div.bar{
+			background-color: lightgrey;
+		}
+		ul.skill-bars li div.photography{
+			padding: 8px;
+			background-color: black;
+			width: 90%;
+			font-size: 1.7rem;
+			text-align: center;
+			color: white;
+		}
+		ul.skill-bars li div.web{
+			padding: 8px;
+			background-color: black;
+			width: 85%;
+			font-size: 1.7rem;
+			text-align: center;
+			color: white;
+		}
+		ul.skill-bars li div.photoshop{
+			padding: 8px;
+			background-color: black;
+			width: 75%;
+			font-size: 1.7rem;
+			text-align: center;
+			color: white;
+		}
+		section.rating div.rating-cont{
+			display: flex;
+			align-items: center;
+			flex-wrap: wrap;
+			justify-content: space-between;
+		}
+		div.rating-cont div.rating-col{
+			width: 25%;
+			/*padding: 2rem;*/
+			background-color: black;
+		}
+		div.rating-col p, div.rating-col h1{
+			text-align: center;
+			color: white;
+		}
+		div.rating-col h1{
+			font-size: 2.1rem;
+		}
+		div.rating-col p{
+			font-size: 1.7rem;
+		}
+		div.rating-img{
+			height: 50vh;
+			position: relative;
+			background-image: url("images/fourth.jpg");
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-position: center top;
+		}
+		div.rating-img h1{
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			font-size: 3rem;
+			color: white;
+			letter-spacing: 8px;
+			/*font-weight: normal;*/
+		}
+		section.work{
+			width: 70%;
+			margin: 100px auto;
+		}
+		div.work-head h1, div.work-head p{
+			text-align: center;
+			color: grey;
+		}
+		div.work-head{
+			margin-bottom: 60px;
+		}
+		div.work-head h1{
+			font-size: 2.5rem;
+			font-weight: normal;
+		}
+		div.work-head p{
+			font-size: 1.6rem;
+			line-height: 25px;
+		}
+		section.work div.image-container{
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			flex-wrap: wrap;
+		}
+		div.image-container img{
+			width: 23.5%;
+			height: 25vh;
+			margin-bottom: 15px;
+			cursor: pointer;
+		}
+		div.image-container img:hover{
+			opacity: 0.6;
+		}
+		section.work div.load-more{
+			text-align: center;
+			margin: 5rem;
+		}
+		div.load-more button{
+			border: none;
+			padding: 1.5rem;
+			font-size: 1.5rem;
+		}
+		div.modal{
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-color: black;
+			z-index: 44;
+			padding-top: 10%;
+			display: none;
+		}
+		div.modal div.modal-content{
+			margin: 0 auto;
+			width: 38%;
+			height: 60vh;
+			animation: scaleup 0.5s;
+		}
+		div.modal img{
+			display: block;
+			width: 100%;
+			height: 80%;
+		}
+		div.modal div.modal-content p{
+			margin: 25px 0;
+			text-align: center;
+			font-size: 2.2rem;
+			color: lightgrey;
+		}
+		div.modal p.close{
+			position: absolute;
+			top: 0px;
+			right: 50px;
+			font-size: 4rem;
+			color: white;
+			cursor: pointer;
+		}
+		div.modal p.close:hover{
+			color: lightgrey;
+		}
+		@keyframes scaleup{
+			from{
+				transform: scale(0);
+			}
+			to{
+				transform: scale(1);
+			}
+		}
+		section.map{
+				height: 55vh;
+				position: relative;
+				background: url("images/kids.jpg");
+				background-repeat: no-repeat;
+				background-size: cover;
+				background-position: center;
+				opacity: 0.8;
+				/*margin: 80px 20px 0 20px;*/
+		}
+		section.map h1{
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			letter-spacing: 12px;
+			font-size: 2.9rem;
+			color: white;
+		}
+		section.contact{
+			width: 70%;
+			margin: 100px auto;
+		}
+		section.contact div.contact-head{
+			margin: 65px 0;
+		}
+		div.contact-head h1, div.contact-head p{
+			text-align: center;
+			color: grey;
+		}	
+		div.contact-head h1{
+			font-weight: normal;
+			font-size: 2.5rem;
+		}
+		div.contact-head p{
+			font-size: 1.4rem;
+		}
+		section.contact div.contact-body{
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
+		}
+		div.contact-body div.cont-image{
+			width: 30%;
+		}
+		div.cont-image img{
+			width: 100%;
+			height: 25vh;
+			border-radius: 10px;
+		}
+		div.contact-body div.cont-details{
+			width: 63%;
+		}
+		ul.cont-list li{
+			font-size: 1.9rem;
+			color: grey;
+		}
+		div.cont-details p{
+			color: grey;
+			font-size: 1.5rem;
+		}
+		form.contact-form input{
+			font-size: 1.5rem;
+			padding: 1.2rem;
+			border: 1px solid lightgrey;
+		}
+		form.contact-form div.half{
+			display: flex;
+			justify-content: space-between;
+			margin: 6px 0;
+		}
+		div.half input{
+			width: 49%;
+		}
+		div.full input{
+			width: 100%;
+		}
+		div.sendbtn button{
+			border: none;
+			padding: 1.4rem;
+			font-size: 1.5rem;
+			margin-top: 13px;
+			color: white;
+			background-color: black;
+		}
+		form.contact-form div.sendbtn{
+			text-align: right;
+			margin: 5px 0;
+		}
+		section.footer{
+			text-align: center;
+			background-color: grey;
+			padding: 5rem;
+		}
+		section.footer:hover{
+			background-color: black;
+		}
+		section.footer a{
+			border: none;
+			font-size: 1.5rem;
+			padding: 1rem 2rem;
+			cursor: pointer;
+			background-color: white;
+		}
+		section.footer p{
+			text-align: center;
+			font-size: 1.5rem;
+			color: white;
+			margin: 0;
+		}
+		section.footer div.ficon-container{
+			margin: 20px 0;
+		}
+		section.footer div.ficon{
+			display: inline-block;
+		}
+		div.ficon div.fic{
+			width: 1.5rem;
+			height: 0.3rem;
+			margin: 0.1rem;
+			background-color: white;
+		}
+		@media screen and (max-width: 1200px){
+			section.about{
+				width: 96%;
+			}
+			section.work, section.contact{
+				width: 94%;
+			}
+		}
+		@media screen and (max-width: 800px){
+			div.image-container img{
+				width: 49%;
+				/*margin-bottom: initial;
+				height: 50vh;*/
+			}
+			div.cont-image img{
+				height: 18vh;
+			}
+			section.hero-nav p span.website{
+				display: none;
+			}
+			div.modal div.modal-content{
+				width: 80%;
+				height: 50vh;
+			}
+			div.modal{
+			padding-top: 24%;
+		}
+		}
+		@media screen and (max-width: 600px){
+			div.col-cont div.col{
+				width: 100%;
+			}
+			div.col-cont div.col-det{
+				display: none;
+			}
+			div.rating-cont div.rating-col{
+			width: 100%;
+			}
+			div.image-container img{
+			width: 100%;
+			margin-bottom: initial;
+			height: 50vh;
+			}
+			div.contact-body div.cont-image{
+				width: 100%;
+			}
+			div.contact-body div.cont-details{
+				width: 100%;
+				margin-top: 20px;
+			}
+			div.cont-image img{
+				height: 35vh;
+			}
+			nav ul.navlist{
+				/*display: none;*/
+				visibility: hidden;
+			}
+		}
+	</style>
+</head>
+<body>
+	<section class="hero-nav" id="hero">
+		<nav>
+		<ul class="navlist">
+			<li>
+				<div class="icont">
+					<div class="ic"></div>
+					<div class="ic"></div>
+					<div class="ic"></div>
+				</div>
+				<a href="#about">Home</a>
+			</li>
+			<li>
+				<div class="icont">
+					<div class="ic"></div>
+					<div class="ic"></div>
+					<div class="ic"></div>
+				</div>
+				<a href="#menu">About</a>
+			</li>
+			<li>
+				<div class="icont">
+					<div class="ic"></div>
+					<div class="ic"></div>
+					<div class="ic"></div>
+				</div>
+				<a href="#menu">Portfolio</a>
+			</li>
+			<li>
+				<div class="icont">
+					<div class="ic"></div>
+					<div class="ic"></div>
+					<div class="ic"></div>
+				</div>
+				<a href="#contact">Contact</a>
+			</li>
+		</ul>
+		<div class="toggler">
+			<div class="tog"></div>
+			<div class="tog"></div>
+			<div class="tog"></div>
+		</div>
+	</nav>
+	<p>MY <span class="website">WEBSITE</span> LOGO</p>
+	</section>
+	<section class="about">
+		<h1 class="head-about">ABOUT ME</h1>
+		<div class="fant">
+			<h2>I love photography</h2>
+			<p>
+				We have created a fictional "personal" website/blog, and our fictional character is a hobby photographer. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+			</p>
+		</div>
+		<div class="col-cont">
+			<div class="col">
+				<h3>My Name</h3>
+				<img src="images/jenny.jpg">
+			</div>
+			<div class="col col-det">
+				<p>
+					Welcome to my website. I am Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+					proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+					consequat.
+				</p>
+			</div>
+		</div>
+		<div class="skills">
+			<h2>I'm really good at</h2>
+			<ul class="skill-bars">
+				<li>
+					<h1>Photography</h1>
+					<div class="bar">
+						<div class="photography">90%</div>
+					</div>
+				</li>
+				<li>
+					<h1>Web Design</h1>
+					<div class="bar">
+						<div class="web">85%</div>
+					</div>
+				</li>
+				<li>
+					<h1>Photoshop</h1>
+					<div class="bar">
+						<div class="photoshop">75%</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</section>
+	<section class="rating">
+		<div class="rating-cont">
+			<div class="rating-col">
+				<h1>14+</h1>
+				<p>Partners</p>
+			</div>
+			<div class="rating-col">
+				<h1>55+</h1>
+				<p>Project Done</p>
+			</div>
+			<div class="rating-col">
+				<h1>89+</h1>
+				<p>Happy Clients</p>
+			</div>
+			<div class="rating-col">
+				<h1>150+</h1>
+				<p>Meetings</p>
+			</div>
+		</div>
+		<div class="rating-img">
+			<h1>PORTFOLIO</h1>
+		</div>
+	</section>
+	<section class="work">
+		<div class="work-head">
+			<h1>MY WORK</h1>
+			<p>here are some of my latest lorem worm ipsum tipsum. <br> Click on the image to make them larger</p>
+		</div>
+		<div class="image-container">
+			<img src="images/book.jpg" alt="books">
+			<img src="images/boys.jpg"alt="boys">
+			<img src="images/sec.jpg" alt="money exchange">
+			<img src="images/third.jpg" alt="computers">
+			<img src="images/sour.jpg" alt="source code">
+			<img src="images/geometry.jpg" alt="geometry">
+			<img src="images/ferrari.jpg" alt="Ferrari">
+			<img src="images/rockstar.jpg" alt="Rockstar">
+		</div>
+		<div class="modal">
+			<div class="modal-content">
+				<img src="">
+				<p></p>
+			</div>
+			<p class="close" onclick="document.querySelector('div.modal').style.display='none'">x</p>
+		</div>
+		<div class="load-more">
+			<button>LOAD MORE</button>
+		</div>
+	</section>
+	<section class="map">
+		<h1>CONTACT</h1>
+	</section>
+	<section class="contact">
+		<div class="contact-head">
+			<h1>WHERE I WORK</h1>
+			<p>I'd love your feedback</p>
+		</div>
+		<div class="contact-body">
+			<div class="cont-image">
+				<img src="images/mark.jpg">
+			</div>
+			<div class="cont-details">
+				<ul class="cont-list">
+					<li>Chicago, US</li>
+					<li>Phone: +00 151515</li>
+					<li>Email: mail@mail.com</li>
+				</ul>
+				<p>
+					swing by for a cup of coffea, or leave me a note:
+				</p>
+				<form class="contact-form">
+					<div class="half">
+						<input type="text" name="name" placeholder="Name">
+						<input type="email" name="email" placeholder="Email">
+					</div>
+					<div class="full">
+						<input type="text" name="message" placeholder="Message">
+					</div>
+					<div class="sendbtn">
+						<button>SEND MESSAGE</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</section>
+	<section class="footer">
+		<a href="#hero" class="top">To the top</a>
+		<div class="ficon-container">
+			<div class="ficon">
+				<div class="fic"></div>
+				<div class="fic"></div>
+				<div class="fic"></div>
+			</div>
+			<div class="ficon">
+				<div class="fic"></div>
+				<div class="fic"></div>
+				<div class="fic"></div>
+			</div>
+			<div class="ficon">
+				<div class="fic"></div>
+				<div class="fic"></div>
+				<div class="fic"></div>
+			</div>
+			<div class="ficon">
+				<div class="fic"></div>
+				<div class="fic"></div>
+				<div class="fic"></div>
+			</div>
+			<div class="ficon">
+				<div class="fic"></div>
+				<div class="fic"></div>
+				<div class="fic"></div>
+			</div>
+			<div class="ficon">
+				<div class="fic"></div>
+				<div class="fic"></div>
+				<div class="fic"></div>
+			</div>
+		</div>
+		<p>powered by Shaw</p>
+	</section>
+
+	<script type="text/javascript">
+		let images = document.querySelectorAll("div.image-container img")
+		let modal = document.querySelector("div.modal")
+		let caption = document.querySelector("div.modal p")
+		let modalImage = document.querySelector("div.modal img")
+		for(let i=0; i<images.length; i++){
+			images[i].onclick = function(){
+				caption.textContent = this.alt
+				modalImage.src = this.src
+				modal.style.display = "block"
+			}
+		}
+	</script>
+</body>
+</html>
