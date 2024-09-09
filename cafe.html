@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>The Cafe</title>
+	<style type="text/css">
+		*{
+			box-sizing: border-box;
+		}
+		html, body{
+			font-size: 10px;
+			margin: 0;
+			padding: 0;
+			height: 100%;
+		}
+		body{
+			background-color: #f1f1f1;
+		}
+		a{
+			text-decoration: none;
+			color: black;
+		}
+		ul{
+			padding: 0;
+			margin: 0;
+			list-style-type: none;
+		}
+		nav{
+			background-color: black;
+			padding: 10px 20px;
+		}
+		nav ul.nav-list{
+			display: flex;
+			justify-content: space-between;
+		}
+		nav ul.nav-list li{
+			width: 25%;
+			/*border: 1px solid blue;*/
+			padding: 11px;
+			text-align: center;
+		}
+		nav ul.nav-list li:hover{
+			background-color: lightgrey;
+		}
+		nav ul.nav-list li:hover a{
+			color: black;
+		}
+		nav ul.nav-list li a{
+			color: white;
+			font-size: 1.6rem;
+		}
+		section.hero{
+			background-image: url("images/book.jpg");
+			background-position: center;
+			background-size: cover;
+			background-repeat: no-repeat;
+			height: 70vh;
+			position: relative;
+		}
+		section.hero div.hero-text{
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			text-align: center;
+		}
+		div.hero-text h1{
+			color: white;
+			font-size: 8rem;
+		}
+		div.hero-text h1:first-child{
+			margin-bottom: 0px;
+		}
+		div.hero-text h1:last-child{
+			margin-top: 15px;
+		}
+		section.hero p{
+			position: absolute;
+			color: white;
+			font-size: 1.6rem;
+		}
+		section.hero p.tim{
+			left: 30px;
+			bottom: 0px;
+			background-color: black;
+			padding: 4px 11px;
+		}
+		section.hero p.addr{
+			right: 30px;
+			bottom: 0px;
+		}
+		section.about{
+			width:55%;
+			margin: 50px auto;
+		}
+		div.about-head{
+			text-align: center;
+		}
+		div.about-head h1{
+			/*border: 1px solid green;*/
+			color: white;
+			background-color: black;
+			padding: 5px 11px;
+			font-weight: normal;
+			font-size: 1.8rem;
+			letter-spacing: 2px;
+			display: inline-block;
+		}
+		div.about-head p{
+			text-align: justify;
+			font-size: 1.9rem;
+			line-height: 23px;
+		}
+		div.about-head p.bar{
+			border-left: 7px solid darkgrey;
+			padding: 14px 14px;
+		}
+		div.about-card img{
+			width: 100%;
+			max-height: 60vh;
+		}
+		div.card-content h1{
+			font-size: 2rem;
+		}
+		div.card-content h1 span.grey-text{
+			color: grey;
+		}
+		section.menu{
+			width:55%;
+			margin: 50px auto;
+		}
+		section.menu div.menu-header{
+			box-shadow: 1px 1px 10px 2px rgba(0,0,0,0.4)
+		}
+		section.menu div.menu-head{
+			display: flex;
+			justify-content: space-between;
+			box-shadow: 0px 2px 5px rgba(0,0,0,0.2) 
+		}
+		div.menu-head div.col{
+			width: 50%;
+			text-align: center;
+			padding: 3px;
+		}
+		div.menu-head div.col:first-child{
+			background-color: grey;
+		}
+		div.menu-head div.col a{
+			font-size: 1.7rem;
+		}
+		div.menu-head div.col:first-child a{
+			color: white;
+		}
+		div.menu-body{
+			padding: 0 18px;
+		}
+		ul.menu-list li{
+			margin: 55px 0;
+		}
+		ul.menu-list li h1{
+			font-size: 2rem;
+			font-weight: normal;
+		}
+		ul.menu-list li p{
+			font-size: 2rem;
+			color: grey;
+		}
+		section.menu div.menu-image{
+			margin: 20px 0;
+		}
+		div.menu-image img{
+			width: 100%;
+			max-height: 60vh;
+		}
+		section.contact{
+			width: 55%;
+			margin: 0 auto;
+		}
+		section.contact div.find{
+			text-align: center;
+		}
+		div.find h1{
+			display: inline-block;
+			font-size: 2rem;
+			color: white;
+			background-color: black;
+			padding: 2px 5px;
+			font-weight: normal;
+			letter-spacing: 5px;
+		}
+		div.contact-head h2{
+			font-size: 2rem;
+			font-weight: normal;
+		}
+		div.contact-head img{
+			width: 100%;
+			max-height: 60vh;
+		}
+		div.card-detail p{
+			font-size: 1.9rem;
+		}
+		div.card-detail p span.dark{
+			color: white;
+			background-color: black;
+		}
+		div.card-detail p span.res{
+			font-weight: bold;
+		}
+		div.card-detail form input{
+			width: 100%;
+			font-size: 1.8rem;
+			padding: 1.7rem 1.4rem;
+			border: 1px solid lightgrey;
+			margin-bottom: 15px;
+		}
+		div.card-detail form button{
+			color: white;
+			background-color: black;
+			font-size: 1.8rem;
+			padding: 1rem 1.5rem;
+			border: none;
+			/*margin-bottom: 15px;*/
+		}
+		section.footer{
+			padding: 70px;
+		}
+		section.footer p{
+			font-size: 1.5rem;
+			text-align: center;
+		}
+		@media screen and (max-width: 1100px){
+			section.menu, section.contact, section.about{
+				width: 67%;
+			}
+		@media screen and (max-width: 1000px){
+			section.menu, section.contact, section.about{
+				width: 77%;
+			}
+		@media screen and (max-width: 900px){
+			section.menu, section.contact, section.about{
+				width: 87%;
+			}
+		@media screen and (max-width: 800px){
+			section.menu, section.contact, section.about{
+				width: 97%;
+			}
+		}
+	</style>
+</head>
+<body>
+	<nav>
+		<ul class="nav-list">
+			<li>
+				<a href="#">HOME</a>
+			</li>
+			<li>
+				<a href="#">ABOUT</a>
+			</li>
+			<li>
+				<a href="#">MENU</a>
+			</li>
+			<li>
+				<a href="#">WHERE</a>
+			</li>
+		</ul>
+	</nav>
+	<section class="hero">
+		<div class="hero-text">
+			<h1>the</h1>
+			<h1>Cafe</h1>
+		</div>
+			<p class="addr">15 Adr street, 5015</p>
+			<p class="tim">Open from 6am to 5pm</p>
+	</section>
+	<section class="about">
+		<div class="about-head">
+			<h1>ABOUT THE CAFE</h1>
+			<p>
+			The Cafe was founed in blaba by Mr.Smith in Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+			<br>
+			<br>
+			In addition to our full espresso and brew bar menu, we serve fresh made-to-order breakfast and lunch sandwiches, as well as a selection of sides and salads and other good stuff.
+			</p>
+			<p class="bar">
+				<q>Use products from nature for what it's worth - but never too early, nor too late.</q> Fress is the new sweet.
+				<br>
+				<br>
+				<span class="owner">Chef, Coffeeist and Owner: Liam Brown</span>
+			</p>
+		</div>
+		<div class="about-card">
+			<img src="images/fourth.jpg">
+			<div class="card-content">
+				<h1>opening hours: <span class="grey-text">everyday from 6am to 5pm.</span></h1>
+				<h1>Address: <span class="grey-text">15 Adr street, 5015, NY</span></h1>
+			</div>
+		</div>
+	</section>
+	<section class="menu">
+		<div class="menu-header">
+			<div class="menu-head">
+				<div class="col">
+					<a>Eat</a>
+				</div>
+				<div class="col">
+					<a>Drink</a>
+				</div>
+			</div>
+			<div class="menu-body">
+				<ul class="menu-list">
+					<li>
+						<h1>Bread Basket</h1>
+						<p>Assortment of fresh baked fruits breads and muffins 5.50</p>
+					</li>
+					<li>
+						<h1>Honey Almond Granola with Fruits</h1>
+						<p>Natural cereal of honey toasted oats, raisins, almonds and dates 7.00</p>
+					</li>
+					<li>
+						<h1>Belgian Waffle</h1>
+						<p>Vanilla flavored batter with malted flaour 7.50</p>
+					</li>
+					<li>
+						<h1>Scrambled eggs</h1>
+						<p>Scrambled eggs, roasted red pepper and garlic, with green onions 7.50</p>
+					</li>
+					<li>
+						<h1>Blueberry Pancakes</h1>
+						<p>With syrup, butter and lots of berries 8.50</p>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="menu-image">
+			<img src="images/third.jpg">
+		</div>
+	</section>
+	<section class="contact">
+		<div class="find">
+			<h1>WHERE TO FIND US</h1>
+		</div>
+		<div class="contact-head">
+			<h2>Find us at some address at some place.</h2>
+			<img src="images/third.jpg">
+			<div class="card-detail">
+				<p>
+					<span class="dark">FYI!</span> We offer full-services catering for any event, large or small. We understand your needs and we will cater the food to satisfy the biggest criteria of them all, both look and taste.
+					<br>
+					<br>
+					<span class="res">Reserve</span> a table, ask for today's special or just send us a message:
+				</p>
+				<form class="form-container">
+					<input type="text" name="name" placeholder="Name">
+					<input type="text" name="people" placeholder="How many people">
+					<input type="date" name="date" placeholder="11/16/2020 08:00 PM">
+					<input type="text" name="message" placeholder="Message\Special requirements">
+					<button class="send">SEND MESSAGE</button>
+				</form>
+			</div>
+		</div>
+	</section>
+	<section class="footer">
+		<p>Powered by <ins>Shaw</ins></p>
+	</section>
+</body>
+</html>
