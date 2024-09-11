@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Start Page Template</title>
+	<style type="text/css">
+		*{
+			box-sizing: border-box;
+		}
+		html, body{
+			font-size: 10px;
+			margin: 0;
+			padding: 0;
+			/*height: 100%;*/
+		}
+		/*body{
+			background-color: #ffdddd;
+		}*/
+		a{
+			text-decoration: none;
+			color: black;
+		}
+		ul{
+			padding: 0;
+			margin: 0;
+			list-style-type: none;
+		}
+		nav{
+			display: flex;
+			justify-content: space-between;
+			background-color: #f44336;
+			box-shadow: 0px 2px 2px rgba(0,0,0,0.5);
+			position: fixed;
+			left: 0;
+			top: 0;
+			width: 100%;
+		}
+		nav div.left-side{
+			display: flex;
+		}
+		nav div.left-side h1.active{
+			margin: 0;
+			background-color: white;
+			padding: 15px;
+			font-size: 2rem;
+			font-weight: normal;
+		}
+		nav div.left-side h1.active:hover{
+			background-color: #f1f1f1;
+			cursor: pointer;
+		}
+		nav div.left-side ul.nav-list{
+			display: flex;
+		}
+		nav div.left-side ul.nav-list li{
+			padding: 15px;
+			/*border: 1px solid blue;*/
+		}
+		nav div.left-side ul.nav-list li:hover{
+			background-color: white;
+		}
+		nav div.left-side ul.nav-list li:hover a{
+			color: black;
+		}
+		nav div.left-side ul.nav-list li a{
+			color: white;
+			font-size: 2rem;
+		}
+		nav div.toggler{
+			display: none;
+			padding: 20px 25px;
+			cursor: pointer;
+		}
+		nav div.toggler:hover{
+			background-color: white;
+		}
+		nav div.toggler:hover span.tog{
+			border-color: black;
+		}
+		nav div.toggler span.tog{
+			border: 1px solid white;
+			padding: 5px 4px;
+			display: inline-block;
+		}
+		section.header{
+			text-align: center;
+			background-color: #f44336;
+			padding: 120px 0;
+		}
+		section.header h1{
+			font-size: 6rem;
+			color: white;
+		}
+		section.header h5{
+			font-weight: normal;
+			font-size: 2.7rem;
+			color: white;
+		}
+		section.header button{
+			border: none;
+			background-color: black;
+			color: white;
+			font-size: 1.8rem;
+			padding: 1.5rem 2.2rem; 
+		}
+		section.first div.first-cont{
+			display: flex;
+			flex-wrap: wrap;
+			width: 75%;
+			margin: 0 auto;
+			align-items: center;
+		}
+		div.first-cont div.left-sec{
+			width: 65%;
+		}
+		div.left-sec h1{
+			font-size: 3.6rem;
+			text-align: left;
+		}
+		div.left-sec h2{
+			font-size: 1.9rem;
+			font-weight: normal;
+			line-height: 24px;
+			margin: 40px 0;
+		}
+		div.left-sec p{
+			font-size: 1.6rem;
+			line-height: 18px;
+			color: grey;
+		}
+		div.first-cont div.right-sec{
+			width: 35%;
+			text-align: center;
+		}
+		div.right-sec span.box{
+			border: 3px solid #f44336;
+			/*padding: 20px 15px;*/
+			display: inline-block;
+			height: 120px;
+			width: 100px;
+		}
+		/*hdhd*/
+		section.second{
+			background-color: #f1f1f1;
+		}
+		section.second div.second-cont{
+			display: flex;
+			flex-wrap: wrap;
+			width: 75%;
+			margin: 0 auto;
+			align-items: center;
+		}
+		div.second-cont div.left-sec{
+			width: 35%;
+			text-align: center;
+		}
+		section.second div.right-sec h1{
+			font-size: 3.6rem;
+			text-align: left;
+		}
+		section.second div.right-sec h2{
+			font-size: 1.9rem;
+			font-weight: normal;
+			line-height: 24px;
+			margin: 40px 0;
+			text-align: justify;
+		}
+		section.second div.right-sec p{
+			font-size: 1.6rem;
+			line-height: 18px;
+			color: grey;
+			text-align: justify;
+		}
+		div.second-cont div.right-sec{
+			width: 65%;
+			text-align: center;
+		}
+		section.second div.left-sec span.box{
+			border: 3px solid #f44336;
+			/*padding: 20px 15px;*/
+			display: inline-block;
+			height: 120px;
+			width: 100px;
+		}
+		section.quote{
+			text-align: center;
+			background-color: rgba(0,0,0,0.6);
+			padding: 60px 0;
+		}
+		section.quote h1{
+			color: white;
+			font-weight: normal;
+			font-size: 2.5rem;
+		}
+		section.footer{
+			margin-top: 150px;
+			padding-bottom: 70px;
+			text-align: center;
+		}
+		section.footer div.icont{
+			margin-bottom: 45px;
+		}
+		section.footer div.icont span{
+			border: 1px solid lightgrey;
+			padding: 6px 5px;
+			margin-right: 10px;
+			display: inline-block;
+		}
+		section.footer p{
+			color: grey;
+			font-size: 1.6rem;
+		}
+		@media screen and (max-width: 1000px){
+			section.first div.first-cont{
+				width: 95%;
+			}
+			section.second div.second-cont{
+				width: 95%;
+			}
+		}
+		@media screen and (max-width: 600px){
+			nav div.toggler{
+				display: block;
+			}
+			nav div.left-side ul.nav-list{
+				display: none;
+			}
+			nav.responsive{
+				display: block;
+			}
+			nav.responsive div.left-side{
+				display: block;
+			}
+			nav.responsive div.left-side ul.nav-list{
+				display: block;
+			}
+			nav.responsive div.toggler{
+				position: absolute;
+				top: 0px;
+				right: 0px;
+				padding: 19px 25px;
+			}
+			nav.responsive div.toggler:hover{
+				background-color: lightgrey;
+			}
+			nav.responsive div.toggler span.tog{
+				border-color: black;
+			}
+			div.first-cont div.left-sec, div.first-cont div.right-sec{
+				width: 100%;
+			}
+			div.second-cont div.left-sec, div.second-cont div.right-sec{
+				width: 100%;
+			}
+			section.first{
+				padding-bottom: 50px
+			}
+			section.second{
+				padding-top: 150px;
+			}
+			div.first-cont div.right-sec{
+				margin: 90px 0;
+			}
+			div.second-cont div.right-sec{
+				margin: 90px 0;
+			}
+		}
+	</style>
+</head>
+<body>
+	<nav>
+		<div class="left-side">
+			<h1 class="active">Home</h1>
+			<ul class="nav-list">
+				<li>
+					<a href="#">Link 1</a>
+				</li>
+				<li>
+					<a href="#">Link 2</a>
+				</li>
+				<li>
+					<a href="#">Link 3</a>
+				</li>
+				<li>
+					<a href="#">Link 4</a>
+				</li>
+			</ul>
+		</div>
+		<div class="toggler" onclick="showNav()">
+			<span class="tog"></span>
+		</div>
+	</nav>
+	<section class="header">
+		<h1>START PAGE</h1>
+		<h5>Template by shaw</h5>
+		<button>Get Started</button>
+	</section>
+	<section class="first">
+		<div class="first-cont">
+			<div class="left-sec">
+				<h1>Lorem Ipsum</h1>
+				<h2>
+					Cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+					proident, sunt in culpa qui officia deserunt mollit anim id est laborum. consectetur adipisicing elit quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+					consequat
+				</h2>
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+					proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+					quis nostrud exercitation ullamco 
+				</p>
+			</div>
+			<div class="right-sec">
+				<span class="box"></span>
+			</div>
+		</div>
+	</section>
+	<section class="second">
+		<div class="second-cont">
+			<div class="left-sec">
+				<span class="box"></span>
+			</div>
+			<div class="right-sec">
+				<h1>Lorem Ipsum</h1>
+				<h2>
+					Cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+					proident, sunt in culpa qui officia deserunt mollit anim id est laborum. consectetur adipisicing elit quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+					consequat
+				</h2>
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+					proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+					quis nostrud exercitation ullamco 
+				</p>
+			</div>
+		</div>
+	</section>
+	<section class="quote">
+		<h1>Quote of the day: live life</h1>
+	</section>
+	<section class="footer">
+		<div class="icont">
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
+		<p>Powered by <ins>shaw</ins></p>
+	</section>
+	<script type="text/javascript">
+		function showNav(){
+			let navbar = document.querySelector("nav")
+			navbar.classList.toggle("responsive")
+		}
+	</script>
+</body>
+</html>
