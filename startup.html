@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>StartUp Template</title>
+	<style type="text/css">
+		*{
+			box-sizing: border-box;
+		}
+		html, body{
+			font-size: 10px;
+			margin: 0;
+			padding: 0;
+			/*height: 100%;*/
+		}
+		/*body{
+			background-color: #ffdddd;
+		}*/
+		a{
+			text-decoration: none;
+			color: black;
+		}
+		ul{
+			padding: 0;
+			margin: 0;
+			list-style-type: none;
+		}
+		nav{
+			/*border: 1px solid yellow;*/
+			position: relative;
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			background-color: white;
+			z-index: 45;
+			box-shadow: 0px 2px 3px rgba(0,0,0,0.3)
+		}
+		nav div.nav-container{
+			display: flex;
+			justify-content: space-between;
+		}
+		nav div.nav-container ul.nav-list{
+			display: flex;
+		}
+		nav div.toggler{
+			position: absolute;
+			top: 0;
+			right: 0;
+			/*border: 1px solid green;*/
+			padding: 18px;
+			cursor: pointer;
+			z-index: 22;
+			display: none;
+		}
+		nav div.toggler:hover{
+			background-color: lightgrey;
+		}
+		nav div.toggler span.tog{
+			padding: 5px 4px;
+			border: 1px solid black;
+			display: inline-block;
+		}
+		div.nav-container h1{
+			margin: 0;
+			font-size: 1.7rem;
+			letter-spacing: 2px;
+			padding: 15px;
+			font-weight: normal;
+		}
+		div.nav-container h1:hover{
+			background-color: lightgrey;
+		}
+		div.nav-container ul.nav-list li{
+			padding: 15px;
+			/*border: 1px solid green;*/
+		}
+		div.nav-container ul.nav-list li:hover{
+			background-color: lightgrey;
+		}
+		div.nav-container ul.nav-list li a span.box{
+			border: 1px solid black;
+			padding: 4px 3px;
+			display: inline-block;
+			margin-right: 5px;
+		}
+		div.nav-container ul.nav-list li a{
+			font-size: 1.6rem;
+		}
+		section.hero{
+			margin-top: 52px;
+			height: 95vh;
+			background-image: url("images/fourth.jpg");
+			position: relative;
+			padding: 0 40px;
+		}
+		section.hero div.hero-content{
+			position: absolute;
+			top: 18%;
+		}
+		div.hero-content h1{
+			font-size: 5.5rem;
+			line-height: 100px;
+			color: white;
+		}
+		div.hero-content p{
+			font-size: 2rem;
+			color: white;
+			margin-bottom: 40px;
+		}
+		div.hero-content button{
+			font-size: 2rem;
+			color: black;
+			background-color: white;
+			border: none;
+			padding: 1.6rem 2rem; 
+			opacity: 0.6;
+		}
+		section.hero div.icont-cont{
+			position: absolute;
+			bottom: 30px;
+		}
+		section.hero div.icont-cont span{
+			border: 1px solid grey;
+			padding: 5px 4px;
+			margin-right: 6px;
+			display: inline-block;
+		}
+		div.side-bar{
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 35%;
+			height: 100%;
+			overflow: hidden;
+			width: 0;
+			transition: width 0.5s;
+			background-color: black;
+			z-index: 65;
+		}
+		div.side-bar h1{
+			color: white;
+			margin: 0;
+			padding: 22px 20px;
+			font-size: 2rem;
+			cursor: pointer;
+		}
+		div.side-bar h1:hover{
+			background-color: lightgrey;
+			color: black;
+		}
+		div.side-bar ul.menu-list li a{
+			color: white;
+			font-size: 1.6rem;
+		}
+		div.side-bar ul.menu-list li{
+			padding: 14px 20px;
+		}
+		div.side-bar ul.menu-list li:hover{
+			background-color: lightgrey;
+		}
+		div.side-bar ul.menu-list li:hover a{
+			color: black;
+		}
+		section.about{
+			margin: 150px 40px;
+		}
+		section.about h1{
+			font-size: 2.5rem;
+			text-align: center;
+		}
+		section.about h2{
+			font-weight: normal;
+			font-size: 1.9rem;
+			text-align: center;
+			margin-top: 35px;
+		}
+		section.about div.spec-cont{
+			display: flex;
+			justify-content: space-between;
+			flex-wrap: wrap;
+			margin-top: 80px;
+		}
+		div.spec-cont div.spec{
+			width: 23%;
+			text-align: center;
+		}
+		div.spec span.box{
+			display: inline-block;
+			border: 1px solid black;
+			padding: 19px 15px;
+		}
+		div.spec h3{
+			color: #616161;
+			font-size: 1.9rem;
+			margin-top: 35px;
+			margin-bottom: 25px;
+		}
+		div.spec p{
+			font-size: 1.6rem;
+			line-height: 22px;
+		}
+		section.design{
+			padding: 150px 40px;
+			display: flex;
+			justify-content: space-between;
+			flex-wrap: wrap;
+			background-color: #f1f1f1;
+		}
+		section.design div.left-side{
+			width: 45%;
+		}
+		section.design div.right-side{
+			width: 50%;
+		}
+		section.design div.left-side h1{
+			font-size: 2.5rem;
+			font-weight: normal;
+		}
+		section.design div.left-side p{
+			font-size: 1.7rem;
+			line-height: 25px;
+		}
+		section.design div.left-side button{
+			border: none;
+			color: white;
+			background-color: black;
+			padding: 1.3rem 1.5rem;
+			font-size: 1.6rem;
+		}
+		section.design div.left-side button span{
+			border: 1px solid white;
+			padding: 4px 3px;
+			display: inline-block;
+			margin-right: 7px;
+		}
+		section.design div.right-side img{
+			width: 100%;
+			max-height: 50vh;
+			border-radius: 10px;
+		}
+		section.team{
+			margin: 150px 40px;
+		}
+		section.team>h1{
+			font-size: 2.5rem;
+			text-align: center;
+		}
+		section.team>h2{
+			font-weight: normal;
+			font-size: 1.8rem;
+			text-align: center;
+			margin-top: 35px;
+			margin-bottom: 70px;
+		}
+		div.cards div.card-cont{
+			display: flex;
+			justify-content: space-between;
+			flex-wrap: wrap;
+		}
+		div.card-cont div.card{
+			width: 24%;
+			background-color: white;
+			box-shadow: 0px 0px 6px 0px rgba(0,0,0,0.5);
+		}
+		div.card img{
+			width: 100%;
+			max-height: 30vh;
+		}
+		div.card div.card-body{
+			padding: 15px 15px;
+			/*background-color: #f1f1f1;*/
+		}
+		div.card-body h1{
+			margin: 0;
+			font-size: 2.6rem;
+		}
+		div.card-body h2{
+			font-size: 1.7rem;
+			font-weight: normal;
+			color: grey;
+			margin: 20px 0;
+		}
+		div.card-body p{
+			font-size: 1.7rem;
+			line-height: 26px;
+			margin-bottom: 20;
+		}
+		div.card-body button{
+			width: 100%;
+			border: none;
+			text-align: center;
+			padding: 14px;
+			font-size: 1.5rem;
+			cursor: pointer;
+		}
+		div.card-body button:hover{
+			background-color: lightgrey;
+		}
+		div.card-body button span{
+			display: inline-block;
+			border: 1px solid black;
+			padding: 4px 3px;
+			margin-right: 7px;
+		}
+		/*hdld*/
+		section.skills div.sect-cont{
+			display: flex;
+			justify-content: center;
+			flex-wrap: wrap;
+		}
+		div.sect-cont div.sect{
+			width: 25%;
+			background-color: #616161;
+			padding: 60px 25px;
+			text-align: center;
+		}
+		div.sect span{
+			font-size: 4rem;
+			color: white;
+		}
+		div.sect p{
+			font-size: 1.7rem;
+			color: white;
+			margin-bottom: 0
+		}
+		section.work{
+			margin: 150px 40px;
+		}
+		section.work>h1{
+			font-size: 2.5rem;
+			text-align: center;
+		}
+		section.work>h2{
+			font-weight: normal;
+			font-size: 1.8rem;
+			text-align: center;
+			margin-top: 35px;
+		}
+		section.work div.image-cont{
+			margin: 75px 0;
+			display: flex;
+			justify-content: space-between;
+			flex-wrap: wrap;
+		}
+		section.work div.image-cont img{
+			width: 24%;
+			height: 30vh;
+			margin-bottom: 15px;
+		}
+		section.work div.image-cont img:hover{
+			opacity: 0.7;
+		}
+		section.project{
+			padding: 60px 40px 50px 40px;
+			display: flex;
+			justify-content: space-between;
+			flex-wrap: wrap;
+			background-color: #f1f1f1;
+		}
+		section.project div.left-side{
+			width: 45%;
+		}
+		section.project div.right-side{
+			width: 50%;
+		}
+		section.project div.left-side h1{
+			font-size: 2.5rem;
+			font-weight: normal;
+		}
+		section.project div.left-side p{
+			font-size: 1.7rem;
+			line-height: 25px;
+		}
+		ul.skill-list{
+			margin-bottom: 25px;
+		}
+		ul.skill-list li p{
+			letter-spacing: 3px;
+			font-size: 1.7rem;
+			color: black;
+		}
+		ul.skill-list li p span{
+			display: inline-block;
+			border: 1px solid black;
+			padding: 4px 3px;
+			margin-right: 8px;
+		}
+		ul.skill-list li div.progress-bar{
+			width: 100%;
+			background-color: darkgrey;
+		}
+		ul.skill-list li div.progress{
+			padding: 7px;
+			color: white;
+			background-color: #616161;
+			text-align: center;
+			font-size: 1.5rem;
+		}
+		ul.skill-list li:nth-child(1) div.progress{
+			width: 95%;
+		}
+		ul.skill-list li:nth-child(2) div.progress{
+			width: 85%;
+		}
+		ul.skill-list li:nth-child(3) div.progress{
+			width: 80%;
+		}
+		section.pricing{
+			padding: 150px 30px;
+			background-color: #616161;
+		}
+		section.pricing>h1{
+			font-size: 2.5rem;
+			text-align: center;
+			color: white;
+		}
+		section.pricing>h2{
+			font-weight: normal;
+			font-size: 1.8rem;
+			text-align: center;
+			margin-top: 35px;
+			color: white;
+		}
+		section.pricing div.charge-cont{
+			display: flex;
+			justify-content: space-between;
+			flex-wrap: wrap;
+			margin-top: 70px;
+		}
+		div.charge-cont ul.charge-list{
+			width: 32.5%;
+			background-color: white;
+			/*border: 1px solid lightgrey;*/
+			box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.3);
+		} 
+		div.charge-cont ul.charge-list:hover{
+			box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.6);
+		} 
+		ul.charge-list li{
+			text-align: center;
+			font-size: 1.5rem;
+			padding: 20px 2px;
+			border-bottom: 1px solid lightgrey;
+		}
+		ul.charge-list li.charge-head{
+			font-size: 2.7rem;
+			color: white;
+			background-color: black;
+			padding: 35px 15px;
+		}
+		ul.charge-list:nth-child(2) li.charge-head{
+			background-color: #f44336;
+			padding: 55px 15px;
+		}
+		ul.charge-list li.money h2{
+			margin-top: 5px;
+			margin-bottom: 15px;
+			font-size: 3rem;
+			font-weight: normal;
+		}
+		ul.charge-list li.money p{
+			margin: 0;
+		}
+		ul.charge-list li.sign-up{
+			background-color: #f1f1f1;
+		}
+		ul.charge-list li.sign-up button{
+			background-color: black;
+			color: white;
+			border: none;
+			padding: 14px 22px;
+			font-size: 1.5rem;
+			cursor: pointer;
+		}
+		ul.charge-list li.sign-up button:hover{
+			background-color: #f1f1f1;
+			color: black;
+		}
+		section.contact{
+			padding: 150px 20px 70px 20px;
+			background-color: #f1f1f1;
+		}
+		section.contact>h1{
+			font-size: 2.5rem;
+			text-align: center;
+			color: black;
+		}
+		section.contact>h2{
+			font-weight: normal;
+			font-size: 1.8rem;
+			text-align: center;
+			margin-top: 35px;
+			color: black;
+		}
+		section.contact ul.contact-list{
+			padding-left: 8px;
+			margin-top: 50px;
+		}
+		ul.contact-list li span{
+			display: inline-block;
+			border: 1px solid black;
+			padding: 11px 9px;
+			margin-right: 29px;
+		}
+		ul.contact-list li{
+			font-size: 1.6rem;
+			color: black;
+			/*line-height: 38px;*/
+			display: flex;
+			align-items: center;
+			margin: 20px 0;
+		}
+		section.contact img{
+			width: 100%;
+			max-height: 60vh;
+		}
+		section.contact form input{
+			width: 100%;
+			padding: 1.6rem 1.2rem;
+			font-size: 1.5rem ;
+			border: 1px solid lightgrey;
+			margin-bottom: 14px;
+		}
+		section.contact form button{
+			border: none;
+			color: white;
+			background-color: black;
+			padding: 14px 22px;
+			font-size: 1.5rem;
+			text-transform: uppercase;
+		}
+		section.contact form button:hover{
+			color: black;
+			background-color: lightgrey;
+		}
+		section.contact form button span{
+			border: 1px solid white;
+			padding: 5px 4px;
+			display: inline-block;
+			margin-right: 10px;
+		}
+		section.contact form button:hover span{
+			border-color: black;
+		}
+		section.contact div.form-container{
+			margin-top: 60px;
+		}
+		section.img-bottom{
+			padding: 0 20px;
+			padding-bottom: 150px;
+			background-color: #f1f1f1;
+		}
+		section.img-bottom img{
+			width: 100%;
+			max-height: 95vh;
+		}
+		section.footer{
+			/*margin-top: 150px;*/
+			padding: 50px 0;
+			text-align: center;
+			background-color: black
+		}
+		section.footer div.icont{
+			/*border: 1px solid red;*/
+			margin: 30px 0;
+		}
+		section.footer div.icont span{
+			border: 1px solid white;
+			padding: 6px 5px;
+			margin-right: 10px;
+			display: inline-block;
+		}
+		section.footer p{
+			color: white;
+			font-size: 1.6rem;
+			margin: 0;
+		}
+		section.footer a{
+			color: black;
+			font-size: 1.6rem;
+			background-color: #f1f1f1;
+			padding: 1.2rem 1.6rem;
+			display: inline-block;
+		}
+		section.footer a:hover{
+			background-color: lightgrey;
+		}
+		section.footer a span{
+			display: inline-block;
+			border: 1px solid black;
+			padding: 4px 3px;
+			margin-right: 8px;
+		}
+		@media screen and (max-width: 1000px){
+				div.card-cont div.card{
+				width: 49%;
+				margin-bottom: 15px;
+			}
+			div.spec-cont div.spec{
+				width: 48%;
+				margin-bottom: 10px;
+			}
+			div.sect-cont div.sect{
+				width: 50%;
+			}
+			section.work div.image-cont img{
+				width: 49%;
+			}
+			div.charge-cont ul.charge-list{
+				width: 31%;
+			} 
+		}
+		@media screen and (max-width: 600px){
+			div.hero-content h1{
+				font-size: 3rem;
+				line-height: 60px;
+			}
+			nav div.nav-container ul.nav-list{
+				display: none;
+			}
+			nav div.toggler{
+				display: block;
+			}
+			div.card-cont div.card{
+				width: 100%;
+			}
+			section.design div.left-side{
+			width: 100%;
+			margin-bottom: 15px;
+			}
+			section.design div.right-side{
+				width: 100%;
+			}
+			div.spec-cont div.spec{
+				width: 100%;
+			}
+			div.sect-cont div.sect{
+				width: 100%;
+				padding: 20px 25px;
+			}
+			section.work div.image-cont img{
+				width: 100%;
+				height: 60vh;
+				margin-bottom: 0;
+			}
+			section.project div.left-side{
+				width: 100%;
+			}
+			section.project div.right-side{
+				width: 100%;
+			}
+			div.charge-cont ul.charge-list{
+				width: 100%;
+				margin-bottom: 15px;
+			} 
+		}
+	</style>
+</head>
+<body>
+	<div class="side-bar">
+		<h1 onclick="closeSide()">Close</h1>
+		<ul class="menu-list">
+			<li>
+				<a href="#">ABOUT</a>
+			</li>
+			<li>
+				<a href="#">TEAM</a>
+			</li>
+			<li>
+				<a href="#">WORK</a>
+			</li>
+			<li>
+				<a href="#">PRICING</a>
+			</li>
+			<li>
+				<a href="#">CONTACT</a>
+			</li>
+		</ul>
+	</div>
+	<nav>
+		<div class="toggler" onclick="toggleSide()">
+			<span class="tog"></span>
+		</div>
+		<div class="nav-container">
+			<h1 class="logo">LOGO</h1>
+			<ul class="nav-list">
+				<li>
+					<a href="#">ABOUT</a>
+				</li>
+				<li>
+					<a href="#"><span class="box"></span>WORK</a>
+				</li>
+				<li>
+					<a href="#"><span class="box"></span>PRICING</a>
+				</li>
+				<li>
+					<a href="#"><span class="box"></span>CONTACT</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+	<section class="hero" id="top">
+		<div class="hero-content">
+			<h1>Start something <span class="brk">that matters</span></h1>
+			<p>Stop wasting valuable time with projects that just isn't you.</p>
+			<button>Learn more and start today</button>
+		</div>
+		<div class="icont-cont">
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
+	</section>
+	<section class="about">
+		<h1>ABOUT THE COMPANY</h1>
+		<h2>Key features of our company</h2>
+		<div class="spec-cont">
+			<div class="spec">
+				<span class="box"></span>
+				<h3>Responsive</h3>
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+			</div>
+			<div class="spec">
+				<span class="box"></span>
+				<h3>Passion</h3>
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+				</p>
+			</div>
+			<div class="spec">
+				<span class="box"></span>
+				<h3>Design</h3>
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+				</p>
+			</div>
+			<div class="spec">
+				<span class="box"></span>
+				<h3>Support</h3>
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+				</p>
+			</div>
+		</div>
+	</section>
+	<section class="design">
+		<div class="left-side">
+			<h1>We know design</h1>
+			<p>
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore
+			</p>
+			<button><span></span>View Our Works</button>
+		</div>
+		<div class="right-side">
+			<img src="images/kyle.jpg">
+		</div>
+	</section>
+	<section class="team">
+		<h1>THE TEAM</h1>
+		<h2>The ones who runs this company</h2>
+		<div class="cards">
+				<div class="card-cont">
+					<div class="card">
+						<img src="images/mark.jpg">
+						<div class="card-body">
+							<h1>John Doe</h1>
+							<h2>CEO & Founder</h2>
+							<p>
+								Phasellus eget enim eu lectus faucibus vesitibulum. Suspendisse sodales pellentesque elementum
+							</p>
+							<button><span></span>Contact</button>
+						</div>
+					</div>
+					<div class="card">
+						<img src="images/jenny.jpg">
+						<div class="card-body">
+							<h1>Jane Doe</h1>
+							<h2>Designer</h2>
+							<p>
+								Phasellus eget enim eu lectus faucibus vesitibulum. Suspendisse sodales pellentesque elementum
+							</p>
+							<button><span></span>Contact</button>
+						</div>
+					</div>
+					<div class="card">
+						<img src="images/kyle.jpg">
+						<div class="card-body">
+							<h1>Mike Ross</h1>
+							<h2>Architect</h2>
+							<p>
+								Phasellus eget enim eu lectus faucibus vesitibulum. Suspendisse sodales pellentesque elementum
+							</p>
+							<button><span></span>Contact</button>
+						</div>
+					</div>
+					<div class="card">
+						<img src="images/rockstar.jpg">
+						<div class="card-body">
+							<h1>Dan Star</h1>
+							<h2>Architect</h2>
+							<p>
+								Phasellus eget enim eu lectus faucibus vesitibulum. Suspendisse sodales pellentesque elementum
+							</p>
+							<button><span></span>Contact</button>
+						</div>
+					</div>
+				</div>
+			</div>
+	</section>
+	<section class="skills">
+		<div class="sect-cont">
+			<div class="sect">
+				<span>11+</span>
+				<p>Partners</p>
+			</div>
+			<div class="sect green">
+				<span>55+</span>
+				<p>Project Done</p>
+			</div>
+			<div class="sect">
+				<span>89+</span>
+				<p>Happy Clients</p>
+			</div>
+			<div class="sect">
+				<span>150+</span>
+				<p>Meetings+</p>
+			</div>
+		</div>
+	</section>
+	<section class="work">
+		<h1>OUR WORK</h1>
+		<h2>What we've done for people</h2>
+		<div class="image-cont">
+			<img src="images/book.jpg">
+			<img src="images/boys.jpg">
+			<img src="images/chamber.jpg">
+			<img src="images/default.jpg">
+			<img src="images/ferrari.jpg">
+			<img src="images/fourth.jpg">
+			<img src="images/third.jpg">
+			<img src="images/sec.jpg">
+		</div>
+	</section>
+	<section class="project">
+		<div class="left-side">
+			<h1>Our Skills</h1>
+			<p>
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore
+				<br><br>
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore
+			</p>
+		</div>
+		<div class="right-side">
+			<ul class="skill-list">
+				<li>
+					<p><span></span> Photography</p>
+					<div class="progress-bar">
+						<div class="progress">95%</div>
+					</div>
+				</li>
+				<li>
+					<p><span></span> Web Design</p>
+					<div class="progress-bar">
+						<div class="progress">85%</div>
+					</div>
+				</li>
+				<li>
+					<p><span></span> Photoshop</p>
+					<div class="progress-bar">
+						<div class="progress">80%</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</section>
+	<section class="pricing">
+		<h1>PRICING</h1>
+		<h2>Choose a price plan that fits your needs</h2>
+		<div class="charge-cont">
+			<ul class="charge-list">
+				<li class="charge-head">
+					Basic
+				</li>
+				<li><strong>10GB</strong> Storage</li>
+				<li><strong>10</strong> Emails</li>
+				<li><strong>10</strong> Domains</li>
+				<li><strong>Endless</strong> Support</li>
+				<li class="money">
+					<h2>$ 10</h2>
+					<p>per month</p>
+				</li>
+				<li class="sign-up">
+					<button>Sign Up</button>
+				</li>
+			</ul>
+			<ul class="charge-list">
+				<li class="charge-head">
+					Pro
+				</li>
+				<li><strong>10GB</strong> Storage</li>
+				<li><strong>10</strong> Emails</li>
+				<li><strong>10</strong> Domains</li>
+				<li><strong>Endless</strong> Support</li>
+				<li class="money">
+					<h2>$ 10</h2>
+					<p>per month</p>
+				</li>
+				<li class="sign-up">
+					<button>Sign Up</button>
+				</li>
+			</ul>
+			<ul class="charge-list">
+				<li class="charge-head">
+					Premium
+				</li>
+				<li><strong>10GB</strong> Storage</li>
+				<li><strong>10</strong> Emails</li>
+				<li><strong>10</strong> Domains</li>
+				<li><strong>Endless</strong> Support</li>
+				<li class="money">
+					<h2>$ 10</h2>
+					<p>per month</p>
+				</li>
+				<li class="sign-up">
+					<button>Sign Up</button>
+				</li>
+			</ul>
+		</div>
+	</section>
+	<section class="contact">
+		<h1>CONTACT</h1>
+		<h2>Lets get in touch. Send us a message</h2>
+		<ul class="contact-list">
+			<li>
+				<span class="box"></span> Chicago, Us
+			</li>
+			<li>
+				<span class="box"></span> Phone: +00 151515
+			</li>
+			<li>
+				<span class="box"></span> Email: mail@mail.com
+			</li>
+		</ul>
+		<div class="form-container">
+			<form>
+				<input type="text" name="name" id="name" placeholder="Name">
+				<input type="email" name="email" id="email" placeholder="Email">
+				<input type="text" name="message" id="message" placeholder="Message">
+				<button><span></span> Send Message</button>
+			</form>	
+		</div>
+	</section>
+	<section class="img-bottom">
+		<img src="images/fourth.jpg">
+	</section>
+	<section class="footer">
+		<a href="#top"><span></span> To the top</a>
+		<div class="icont">
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
+		<p>Powered by <ins>shaw</ins></p>
+	</section>
+
+	<script type="text/javascript">
+		let sideBar = document.querySelector("div.side-bar")
+		function toggleSide(){
+			if(sideBar.style.width){
+				sideBar.style.width = null
+			}
+			else{
+				sideBar.style.width = "35%"
+			}
+		}
+		function closeSide(){
+			sideBar.style.width = null
+		}
+	</script>
+</body>
+</html>
